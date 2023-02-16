@@ -1,17 +1,12 @@
 <template>
-    <h1>Hello, {{name}}</h1>
-
-    <p>In this series, we will use the following frameworks:</p>
-    <ul>
-        <li v-for="framework of frameworks" v-text="framework"></li>
-    </ul>
+    <h2>Home</h2>
+    <Nav />
 </template>
 
 <script>
-        export default {
-            props: {
-                name: String,
-                frameworks: Array
-            },
-        }
+    import Nav from "../Shared/Nav.vue";
+
+    export default {
+        components: { Nav },
+    };
 </script>
