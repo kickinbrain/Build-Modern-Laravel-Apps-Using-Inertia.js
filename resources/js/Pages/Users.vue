@@ -1,5 +1,5 @@
 <template>
-    <h2>Users</h2>
+    <h2 class="text-xl font-bold">Users</h2>
     <Nav />
 </template>
 
