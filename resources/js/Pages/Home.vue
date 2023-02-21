@@ -1,5 +1,5 @@
 <template>
-    <Layout>
+    <Layout :username="username">
         <h2 class="text-xl font-bold">Home</h2>
     </Layout>
 </template>
@@ -9,5 +9,7 @@
 
     export default {
         components: { Layout },
+
+
     };
 </script>
