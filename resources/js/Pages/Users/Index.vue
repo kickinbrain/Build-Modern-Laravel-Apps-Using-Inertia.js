@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import Pagination from "../Shared/Pagination";
+import Pagination from "../../Shared/Pagination";
 import {Inertia} from "@inertiajs/inertia";
 export default {
     components: {Pagination, Inertia},
