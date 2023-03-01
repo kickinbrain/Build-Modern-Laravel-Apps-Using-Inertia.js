@@ -4,6 +4,8 @@
         <div class="flex justify-between mb-6">
             <h2 class="text-xl font-bold">Users</h2>
 
+            <Link href="/users/create" class="text-blue-500">New user</Link>
+
             <input type="text" v-model="search" placeholder="Search...." class="border px-2 rounded-lg">
         </div>
     <ul>
@@ -22,8 +24,10 @@
 <script>
 import Pagination from "../../Shared/Pagination";
 import {Inertia} from "@inertiajs/inertia";
+import {Link} from "@inertiajs/inertia-vue3";
+
 export default {
-    components: {Pagination, Inertia},
+    components: {Pagination, Inertia, Link},
     props:{
         users: Object,
         filters: Object

@@ -6,8 +6,11 @@
         <div class="mb-6">
             <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name"> Name </label>
 
-            <input v-model="form.name" class="border border-gray-400 p-2 w-full" type="text" name="name" id="name" required />
+            <input v-model="form.name" class="border border-gray-400 p-2 w-full" type="text" name="name" id="name"/>
+
+            <div v-if="errors.name" v-text="errors.name" class="text-red-500 mt-2"></div>
         </div>
+
 
         <div class="mb-6">
             <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="email"> Email </label>
@@ -18,7 +21,6 @@
                 type="email"
                 name="email"
                 id="email"
-                required
             />
         </div>
 
@@ -31,17 +33,16 @@
                 type="password"
                 name="password"
                 id="password"
-                required
             />
         </div>
 
         <div class="mb-6">
-            <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500">Submit</button>
+            <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500" :disabled="processing">Submit</button>
         </div>
     </form>
 </template>
 <script setup>
-    import {reactive} from "vue";
+    import {reactive, ref} from "vue";
     import {Inertia} from "@inertiajs/inertia";
 
     let form = reactive({
@@ -50,7 +51,16 @@
         password: ''
     });
 
+    defineProps({
+        errors: Object
+    })
+
+    let processing = ref(false);
+
     let submit = () => {
-        Inertia.post('/users', form);
+        Inertia.post('/users', form, {
+            onStart: () =>  {processing.value = true},
+            onFinish: () => {processing.value = false},
+        });
     }
 </script>

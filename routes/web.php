@@ -44,6 +44,8 @@ Route::get('/users/create', function (){
    return Inertia::render('Users/Create');
 });
 Route::post('/users', function (){
+
+    sleep(3);
     $user_data = Request::validate([
         'name' => 'required',
         'email' => 'required',
