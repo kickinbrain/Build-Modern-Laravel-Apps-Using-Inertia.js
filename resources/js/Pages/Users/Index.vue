@@ -25,6 +25,7 @@
 import Pagination from "../../Shared/Pagination";
 import {Inertia} from "@inertiajs/inertia";
 import {Link} from "@inertiajs/inertia-vue3";
+import {throttle} from "lodash/function";
 
 export default {
     components: {Pagination, Inertia, Link},
@@ -38,12 +39,12 @@ export default {
         }
    },
    watch: {
-        search(value){
+        search: throttle(function (value){
             this.$inertia.get('/users', {search: value}, {
                 preserveState: true,
                 replace: true
             })
-        }
+        }, 500)
    }
 
 }
