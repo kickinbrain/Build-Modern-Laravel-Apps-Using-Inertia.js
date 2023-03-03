@@ -218,7 +218,6 @@ _inertiajs_progress__WEBPACK_IMPORTED_MODULE_2__.InertiaProgress.init();
 (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.createInertiaApp)({
   resolve: function () {
     var _resolve = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(name) {
-      var _page$layout;
       var page;
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) switch (_context.prev = _context.next) {
@@ -227,7 +226,9 @@ _inertiajs_progress__WEBPACK_IMPORTED_MODULE_2__.InertiaProgress.init();
             return __webpack_require__("./resources/js/Pages lazy recursive ^\\.\\/.*$")("./".concat(name));
           case 2:
             page = _context.sent["default"];
-            (_page$layout = page.layout) !== null && _page$layout !== void 0 ? _page$layout : page.layout = _Shared_Layout_vue__WEBPACK_IMPORTED_MODULE_3__["default"];
+            if (page.layout === undefined) {
+              page.layout = _Shared_Layout_vue__WEBPACK_IMPORTED_MODULE_3__["default"];
+            }
             return _context.abrupt("return", page);
           case 5:
           case "end":
@@ -458,6 +459,14 @@ __webpack_require__.r(__webpack_exports__);
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var map = {
+	"./Auth/Login": [
+		"./resources/js/Pages/Auth/Login.vue",
+		"resources_js_Pages_Auth_Login_vue"
+	],
+	"./Auth/Login.vue": [
+		"./resources/js/Pages/Auth/Login.vue",
+		"resources_js_Pages_Auth_Login_vue"
+	],
 	"./Home": [
 		"./resources/js/Pages/Home.vue",
 		"resources_js_Pages_Home_vue"
